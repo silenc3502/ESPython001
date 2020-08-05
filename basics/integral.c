@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <math.h>
 
+// 연산 함수의 경우 calc_ 뒤에 연산하는 함수 이름을 작성한다.
+// 데이터를 찾는 함수의 경우 find_ 뒤에 찾는 데이터의 이름을 작성한다.
+
 // 문제. 0 ~ 3까지 y = x^2에 대해 정적분을 수행해보자!
 //       [1/3 * x^3] 0 ~ 3 = 9
 int main(void) {
@@ -11,7 +14,7 @@ int main(void) {
 	//    dx = 0.001
 	int i;
 	float area = 0.0f;
-	float dx = 0.0001;	// 밑변의 길이
+	const float dx = 0.0001;	// 밑변의 길이
 	float curX = 0;
 	float y;
 	int start = 0, end = 3;
