@@ -24,6 +24,13 @@ char **make_mem(void)
 	int i;
 	char **buf = NULL;
 
+	// char *arr[3]
+	// malloc할당은 Heap 공간에 할당한다.
+	// 사용자의 필요에 따라 메모리 할당을 제어할 수 있다.
+	// 스택은 컴파일시에 정적으로 할당되지만
+	// 힙은 프로그램 동작시에 동적으로 할당되므로 느리다.
+	// 그러나 유연성을 있기 때문에 서비스 관점에서는 매우 중요하다.
+	// 펌웨어 -> RTOS가 올라가면 또 필요해진다.
 	buf = (char **)malloc(sizeof(char *) * SLOT_NUM);
 
 	for(i = 0; i < SLOT_NUM; i++)
@@ -104,6 +111,11 @@ void start_slot_game(void)
 	int rlen;
 	char ans[4] = "";
 	char buf[64] = "슬롯 머신을 돌리겠습니까 ? y/n: ";
+	// 이중 포인터는 가변 배열일 수도 있고
+	// 단순한 변수 1개일수도 있다.
+	// char **res == char *res[]
+	// 배열은 공간이 할당되지만 포인터는 공간이 할당되지 않는다.
+	// 그러므로 포인터를 사용할 때는 메모리를 먼저 할당해야 한다.
 	char **res = NULL;
 
 	write(1, buf, strlen(buf));

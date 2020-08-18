@@ -15,6 +15,8 @@ void start_game(int dice)
 {
 	char ans[64] = "";
 	char buf[64] = "주사위 눈금을 맞춰보세요!\n";
+	// Lv2에서 진행할 예정의 내용
+	// 유닉스의 핵심 철학: 모든것은 파일이다: fd(File Descriptor)
 	write(1, buf, strlen(buf));
 	read(0, ans, sizeof(ans));
 

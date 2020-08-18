@@ -59,7 +59,8 @@ int main(void)
 {
 	pd poisson = {0};
 
-	init_poisson_dist(&poisson, 10, 0);
+	// init_poisson_dist(&poisson, 10, 0);
+	init_poisson_dist(&poisson, 10.0f / 12.0f, 0);
 
 	calc_prob(&poisson);
 	calc_expect(&poisson);
